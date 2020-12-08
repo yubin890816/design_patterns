@@ -1,0 +1,9 @@
+@startuml
+class 学生\nStudent{
+    - no:long
+    - name:String
+    - school:String
+    - totalScore:float
+    + void display()
+}
+@enduml
