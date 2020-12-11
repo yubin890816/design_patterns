@@ -1,0 +1,32 @@
+@startuml
+
+class Client {
+    + doSomething()
+}
+
+class Facade {
+    - SubSystemA
+    - SubSystemB
+    - SubSystemC
+
+    + operateA()
+    + operateB()
+    + operateC()
+}
+Client -> Facade
+
+class SubSystemA {
+    + operateA()
+}
+Facade -> SubSystemA
+
+class SubSystemB {
+    + operateB()
+}
+Facade -> SubSystemB
+
+class SubSystemC {
+    + operateC()
+}
+Facade -> SubSystemC
+@enduml
