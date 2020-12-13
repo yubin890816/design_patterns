@@ -54,6 +54,7 @@ public class JDKProxyFactory implements InvocationHandler {
     }
 
     public static void main(String[] args) {
+        System.getProperties().put("sun.misc.ProxyGenerator.saveGeneratedFiles", "true");
         JDKProxyFactory proxyFactory = new JDKProxyFactory(new Dog());
         Animal proxy = (Animal) proxyFactory.getProxy();
         proxy.eat("粑粑");
