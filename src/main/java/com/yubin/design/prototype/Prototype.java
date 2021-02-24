@@ -64,9 +64,5 @@ public class Prototype implements Cloneable, Serializable {
     public void setDate(Date date) {
         this.date = date;
     }
-
-    private class SerializableObject implements Serializable {
-        private static final long serialVersionUID = 1L;
-    }
 }
 
