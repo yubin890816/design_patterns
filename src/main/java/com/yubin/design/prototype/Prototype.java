@@ -1,6 +1,7 @@
 package com.yubin.design.prototype;
 
 import java.io.*;
+import java.util.Date;
 
 /**
  * 原型模式-原型类
@@ -9,11 +10,24 @@ import java.io.*;
  * @create 2020-12-09
  */
 public class Prototype implements Cloneable, Serializable {
-    private static final long serialVersionUID = 1L;
+    //private static final long serialVersionUID = 1L;
 
     private String string;
 
-    private SerializableObject obj;
+    private Date date;
+
+    public Prototype(String string, Date date) {
+        this.string = string;
+        this.date = date;
+    }
+
+    public static void main(String[] args) throws CloneNotSupportedException, IOException, ClassNotFoundException {
+        Prototype prototype1 = new Prototype("张三", new Date());
+        Object prototype2 = prototype1.clone();
+        Object prototype3 = prototype1.deepClone();
+        System.out.println(prototype1 == prototype2);
+        System.out.println(prototype1 == prototype3);
+    }
 
     // 浅复制
     @Override
@@ -43,12 +57,12 @@ public class Prototype implements Cloneable, Serializable {
         this.string = string;
     }
 
-    public SerializableObject getObj() {
-        return obj;
+    public Date getDate() {
+        return date;
     }
 
-    public void setObj(SerializableObject obj) {
-        this.obj = obj;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     private class SerializableObject implements Serializable {
